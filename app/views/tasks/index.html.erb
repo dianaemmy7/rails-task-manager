@@ -1,0 +1,12 @@
+<h1>Personal Task Manager</h1>
+<h2>See all your tasks here:</h2>
+<% @tasks.each do |task| %>
+  <!-- if statement & checkbox image -->
+  <h2><%= link_to task.title, task_path(task) %></h2>
+  <p>completed: <%= task.completed ? '[X]' :  '[   ]'%></p>
+  <%= link_to "Delete this task", task_path(task),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+<% end %>
+
+<p><%=link_to "Add a new task", new_task_path %></p>
